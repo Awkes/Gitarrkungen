@@ -1,0 +1,33 @@
+.brand-name {
+  display: flex;
+  align-items: center;
+}
+#guitar { height: 5em; }
+#logo-text { 
+  display: none;
+  margin: 0; 
+}
+nav img { height: 3em; }
+hr { border-top: 2px solid #000; }
+footer {
+  display: flex;
+  justify-content: space-between
+}
+nav { position: relative; }
+#product-count {
+  position: absolute;
+  top: 0.5em;
+  left: -2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FFF;
+  background-color: #F00;
+  border-radius: 100%;
+  width: 2em;
+  height: 2em;
+}
+.text-xl-left { font-size: 1.5em; }
+@media(min-width: 500px) {
+  #logo-text { display: flex; }
+}
