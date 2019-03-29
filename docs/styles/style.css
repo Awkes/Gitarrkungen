@@ -14,7 +14,7 @@ footer {
   justify-content: space-between
 }
 nav { position: relative; }
-#product-count {
+#cart-qty {
   position: absolute;
   top: 0.5em;
   left: -2em;
