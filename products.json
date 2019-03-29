@@ -1,0 +1,72 @@
+
+{
+  "elgitarrer": [
+    {
+      "id": 1,
+      "url": "https://via.placeholder.com/500",
+      "product": "Gibson SG Special 2018",
+      "description": "Helt okej",
+      "price": 15599
+    }, {
+      "id": 2,
+      "url": "https://via.placeholder.com/500",
+      "product": "Gibson Les Paul",
+      "description": "Bra gitarr",
+      "price": 9999
+    }, {
+      "id": 3,
+      "url": "https://via.placeholder.com/500",
+      "product": "Gibson Flying V",
+      "description": "Skitbra",
+      "price": 7699
+    }, {
+      "id": 4,
+      "url": "https://via.placeholder.com/500",
+      "product": "Fender Telecaster",
+      "description": "YEAH!",
+      "price": 17399
+    }, {
+      "id": 5,
+      "url": "https://via.placeholder.com/500",
+      "product": "ESP Eclipse 2",
+      "description": "Helt okej",
+      "price": 8990
+    }
+  ], 
+  "akustiska_gitarrer": [
+    {
+      "id": 6,
+      "url": "https://via.placeholder.com/500",
+      "product": "Ibanez PF15ECE",
+      "description": "Bra gitarr",
+      "price": 12999
+    }, {
+      "id": 7,
+      "url": "https://via.placeholder.com/500",
+      "product": "CORT Sunset Nylectric",
+      "description": "Skitbra",
+      "price": 12999
+    },
+    {
+      "id": 8,
+      "url": "https://via.placeholder.com/500",
+      "product": "Stratocaster",
+      "description": "Skitbra",
+      "price": 12999
+    },
+    {
+      "id": 9,
+      "url": "https://via.placeholder.com/500",
+      "product": "Stratocaster",
+      "description": "Skitbra",
+      "price": 12999
+    },
+    {
+      "id": 10,
+      "url": "https://via.placeholder.com/500",
+      "product": "Stratocaster",
+      "description": "Skitbra",
+      "price": 12999
+    }
+  ]
+}
