@@ -5,13 +5,16 @@
 // Hämta data från localStorage om data finns i cart, annars skapa tom array.
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
+// $cartQty initieras globalt, för att vara tillgänglig utanför jQuery-blocket
+let $cartQty;
+
 $(document).ready(function() {
 
-  // Selektorer
-  const $cartQty = $('#cart-qty');
+  // Uppdarear $cartQry med en selector
+  $cartQty = $('#cart-qty');
 
   // Uppdatera siffran vid cart
-  cartQty($cartQty); 
+  cartQty(); 
   
 }); // ready
 
@@ -32,9 +35,8 @@ function addProduct(){
       break;
     }
   }
-  // Uppdatera localStorage
-  localStorage.setItem('cart',JSON.stringify(cart));
-  // UPPDATERA KVANTITETCIRKELN!
+  localStorage.setItem('cart',JSON.stringify(cart)); // Uppdatera localStorage
+  cartQty(); // Uppdatera kvantitet i varukorg
 }
 
 // Funktion för att bort produkt (om parameter anges, tas alla bort, annars plockas en bort från kvantiten)
@@ -43,8 +45,8 @@ function delProduct(all) {
 }
 
 // Funktion som itererar över cart och uppdaterar kvantitet i varukorg
-function cartQty(cartQty) {
+function cartQty() {
   let qty = 0;
   $.each(cart, i => qty += cart[i].qty);
-  cartQty.text(qty);
+  $cartQty.text(qty);
 }
