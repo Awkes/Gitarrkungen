@@ -20,14 +20,14 @@ function addProduct(){
   // Letar efter parent (med attributet data-id), och hämtar värdet från data-id och omvandlar värdet till Number
   const id = parseInt($(this).parents('[data-id]').attr('data-id'));  
   // Iterera över cart
-  for (let i=0; i<cart.length; i++) {
-    // Om produkt-id hittas i cart, öka kvantitet, avsluta loop
-    if (id === cart[i].id) { 
+  for (let i=0; i<=cart.length; i++) {
+    // Om cart innehåller nåt och produkt-id hittas i cart, öka kvantitet, avsluta loop
+    if (cart.length && id === cart[i].id) { 
       cart[i].qty++;
       break;
     }
-    // Om id inte hittas och vi har kommit till slutet av cart, lägg till produkten, avsluta loop
-    else if (i === cart.length-1) { 
+    // Om id inte hittas och vi har kommit till slutet av cart eller om cart är tom, lägg till produkten, avsluta loop
+    else if (i === cart.length-1 || cart.length === 0) { 
       cart.push({id: id, qty : 1});            
       break;
     }
