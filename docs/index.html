@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Produktkatalog - Gitarrkungen</title>
-  <link href="bootstrap.css" rel="stylesheet">
-  <link href="style.css" rel="stylesheet">
+  <link href="styles/bootstrap.css" rel="stylesheet">
+  <link href="styles/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -18,7 +18,7 @@
       </h1>
     </div>
     <nav>
-      <div id="product-count">
+      <div id="cart-qty">
         <span>0</span>
       </div>
       <a href="checkout.html">
@@ -29,43 +29,20 @@
 
   <div class="container pt-4">
     <main id="products">
-
-      <h2>Kategori</h2>
-      <hr>
-      <!-- Produkter -->
-
-      <div data-id="" class="card mb-3">
-        <div class="row no-gutters">
-          <div class="col-md-3">
-            <img src="https://via.placeholder.com/300" class="card-img" alt="PRODUKTNAMN">
-          </div>
-          <div class="col-md-9">
-            <div class="card-body d-flex flex-column" style="height: 100%;">
-              <h3 class="card-title">PRODUKTNAMN</h3>
-              <p class="card-text">
-                BESKRIVNING
-              </p>
-              <div class="d-flex align-items-center justify-content-between row no-gutters mt-auto">
-                <p class="card-text font-weight-bold text-xl-left col-md-8 mb-0">PRIS</p>
-                <button class="btn btn-primary col-md-4">Lägg i kundvagn</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Produkter END -->
+    
     </main>
 
-
     <hr>
+
     <footer>
       <div>&copy; Andreas Åkerlöf / Daniel Hessling</div>
       <div><a href="katalog.json">Katalog i JSON-format</a></div>
     </footer>
   </div>
 
-
-  <script src="script.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="scripts/base.js"></script>
+  <script src="scripts/catalog.js"></script>
 </body>
 
 </html>
