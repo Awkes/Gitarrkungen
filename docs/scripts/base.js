@@ -20,8 +20,8 @@ $(document).ready(function() {
 
 // Funktion för att lägga till produkter
 function addProduct(){
-  // Letar efter parent (med attributet data-id), och hämtar värdet från data-id och omvandlar värdet till Number
-  const id = parseInt($(this).parents('[data-id]').attr('data-id'));  
+  // Tar attributet data-id från knappen som triggat funktionen och omvandlar värdet till Number
+  const id = parseInt($(this).attr('data-id'));  
   // Iterera över cart
   for (let i=0; i<=cart.length; i++) {
     // Om cart innehåller nåt och produkt-id hittas i cart, öka kvantitet, avsluta loop

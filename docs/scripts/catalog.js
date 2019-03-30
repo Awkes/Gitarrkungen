@@ -18,7 +18,7 @@ $(document).ready(function () {
       // 2.2 Loopa igenom arrayen med produkt-objekt och lägg till varje produkt
       $.each(prods, (i, prod) => {
         html += `
-           <div data-id="${prod.id}" class="card mb-3">
+           <div class="card mb-3">
               <div class="row no-gutters">
                 <div class="col-md-3">
                   <img src="${prod.url}" class="card-img" alt="${prod.product}">
@@ -31,7 +31,7 @@ $(document).ready(function () {
                     </p>
                     <div class="d-flex align-items-center justify-content-between row no-gutters mt-auto">
                       <p class="card-text font-weight-bold text-xl-left col-md-8 mb-0">${prod.price} kr</p>
-                      <button class="btn btn-primary col-md-4">Lägg i kundvagn</button>
+                      <button data-id="${prod.id}" class="btn btn-primary col-md-4">Lägg i kundvagn</button>
                     </div>
                   </div>
                 </div>
