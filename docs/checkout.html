@@ -25,16 +25,76 @@
   </header>
 
   <div class="container pt-4">
-    <main id="products">
+    <main>
 
       <h2>Varukorg</h2>
       <hr>
-      
-      <h2>Skicka beställning</h2>
-      <hr>     
-      
-    </main>
+      <table class="table table-responsive d-md-table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th class="align-middle" scope="col">Produkt</th>
+            <th class="align-middle text-center" scope="col">Antal</th>
+            <th class="align-middle text-right" scope="col">Pris</th>
+            <th class="align-middle text-right" scope="col"></th>
+          </tr>
+        </thead>
+        <tbody id="cart">
 
+          <tr>
+            <td class="align-middle" scope="row"><img src="https://via.placeholder.com/50" alt="${prod.product}"></th>
+            <td class="align-middle">PRODUKT</td>
+            <td class="align-middle text-center" style="min-width: 14em">
+              <button class="add-product btn btn-sm btn-primary">-</button>
+              <input type="number" min="1" max="10" value="1">
+              <button class="sub-product btn btn-sm btn-primary">+</button>
+            </td>
+            <td class="align-middle text-right">10000&nbsp;kr</td>
+            <td class="align-middle text-right">
+              <button class="del-product btn btn-sm btn-danger">&times;</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="align-middle" scope="row"><img src="https://via.placeholder.com/50" alt="${prod.product}"></th>
+            <td class="align-middle">PRODUKT</td>
+            <td class="align-middle text-center" style="min-width: 14em">
+              <button class="add-product btn btn-sm btn-primary">-</button>
+              <input type="number" min="1" max="10" value="1">
+              <button class="sub-product btn btn-sm btn-primary">+</button>
+            </td>
+            <td class="align-middle text-right">10000&nbsp;kr</td>
+            <td class="align-middle text-right">
+              <button class="del-product btn btn-sm btn-danger">&times;</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="align-middle" scope="row"><img src="https://via.placeholder.com/50" alt="${prod.product}"></th>
+            <td class="align-middle">PRODUKT</td>
+            <td class="align-middle text-center" style="min-width: 14em">
+              <button class="add-product btn btn-sm btn-primary">-</button>
+              <input type="number" min="1" max="10" value="1">
+              <button class="sub-product btn btn-sm btn-primary">+</button>
+            </td>
+            <td class="align-middle text-right">10000&nbsp;kr</td>
+            <td class="align-middle text-right">
+              <button class="del-product btn btn-sm btn-danger">&times;</button>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+      <div id="cart-sum" class="text-right" style="font-size: 2em; color: #000;">
+        Summa: 30000 kr
+      </div>
+
+
+      <h2>Skicka beställning</h2>
+      <hr>
+      
+
+    </main>
 
     <hr>
     <footer>
