@@ -1,52 +1,55 @@
 
 {
-  "Gitarrer": [
+  "Basgitarrer": [
     {
       "id": 1,
-      "url": "images/fender_aerodyne_strat.jpg",
-      "product": "Fender Aerodyne Strat",
-      "description": "En riktigt grym stratocaster, helsvart med brun hals och vita benfärgade detaljer.",
-      "price": 15599
-    }, {
+      "url": "images/Rockson-RSB-110.jpg",
+      "product": "Rockson RSB-110",
+      "description": "En bra bas för nybörjare.",
+      "price": 1699
+    },
+    {
       "id": 2,
-      "url": "images/fender_dg-11.jpg",
-      "product": "Fender DG-11",
-      "description": "En av Fenders bästa akustiska gitarrer till ett riktigt bra pris.",
-      "price": 9999
-    }, {
+      "url": "images/washburn_xb120.jpg",
+      "product": "Washburn XB120",
+      "description": "Ytterligare en bra bas för nybörjare.",
+      "price": 1999
+    }
+  ], 
+  "Gitarrer": [
+    {
       "id": 3,
       "url": "images/akustica.jpg",
       "product": "Akustica",
       "description": "En bra akustisk nybörjargitarr.",
       "price": 599
-    }, {
-      "id": 4,
-      "url": "https://via.placeholder.com/500",
-      "product": "Fender Telecaster",
-      "description": "YEAH!",
-      "price": 17399
-    }, {
-      "id": 5,
-      "url": "https://via.placeholder.com/500",
-      "product": "ESP Eclipse 2",
-      "description": "Helt okej",
-      "price": 8990
-    }
-  ], 
-  "Basgitarrer": [
-    {
-      "id": 6,
-      "url": "images/washburn_xb120.jpg",
-      "product": "Washburn XB120",
-      "description": "Bra bas för nybörjare.",
-      "price": 1999
     },
     {
+      "id": 4,
+      "url": "images/fender_aerodyne_strat.jpg",
+      "product": "Fender Aerodyne Strat",
+      "description": "En riktigt grym stratocaster, helsvart med brun hals och vita benfärgade detaljer.",
+      "price": 9999
+    }, 
+    {
+      "id": 5,
+      "url": "images/fender_dg-11.jpg",
+      "product": "Fender DG-11",
+      "description": "En av Fenders bästa akustiska gitarrer till ett riktigt bra pris.",
+      "price": 2499
+    },
+    {
+      "id": 6,
+      "url": "images/gretsch.jpg",
+      "product": "Gretsch G5440LS",
+      "description": "En semiakustisk skönhet, spela både med och utan förstärkare utan att bli besviken.",
+      "price": 10099
+    }, {
       "id": 7,
-      "url": "https://via.placeholder.com/500",
-      "product": "Stratocaster",
-      "description": "Skitbra",
-      "price": 12999
+      "url": "images/yamaha.jpg",
+      "product": "Yamaha FG800",
+      "description": "En stålsträngad gitarr med underbart klang.",
+      "price": 2899
     }
   ], 
   "Leksaker": [
@@ -59,9 +62,16 @@
     },
     {
       "id": 9,
+      "url": "images/drums.jpg",
+      "product": "Miniatyrtrumset",
+      "description": "Perfekt trumset till barnen för att få in dem i musikvärlden.",
+      "price": 199
+    },
+    {
+      "id": 10,
       "url": "images/ukulele_ananas.jpg",
       "product": "Ukulele - Ananas",
-      "description": "Charmig leksaksukulele med Hawaiianskt tema. Perfekt för att skapa lite glädje på festen.",
+      "description": "Charmig leksaksukulele med Hawaiianskt tema. Perfekt för att skapa lite glädje på festen. Kombinera med miniatyrtrumsetet för att skapa ljuv musik.",
       "price": 99
     }
   ]
