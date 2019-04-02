@@ -52,44 +52,47 @@
 
       <h2>Skicka beställning</h2>
       <hr>
-      <form>
+      <form id="order-form">
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="input-name">Namn</label>
             <input type="text" class="form-control" id="input-name" placeholder="Förnamn Efternamn">
-            <div id="input-name-error" class="alert-danger p-2 mt-1 d-none"></div>
+            <div id="input-name-error" class="alert-danger p-2 mt-1" style="display: none;">
+              Minst 5 tecken, minst 1 mellanrum, minst 2 bokstäver per namn.<br>
+              Du får endast använda A-Ö, a-ö, - och mellanrum.
+            </div>
           </div>
           <div class="form-group col-md-6">
             <label for="input-email">E-post</label>
             <input type="email" class="form-control" id="input-email" placeholder="E-post">
-            <div id="input-email-error" class="alert-danger p-2 mt-1 d-none"></div>
+            <div id="input-email-error" class="alert-danger p-2 mt-1" style="display: none"></div>
           </div>
         </div>
         <div class="form-group">
           <label for="input-address">Adress</label>
           <input type="text" class="form-control" id="input-address" placeholder="Vägnamn 13">
-          <div id="input-address-error" class="alert-danger p-2 mt-1 d-none"></div>
+          <div id="input-address-error" class="alert-danger p-2 mt-1" style="display: none"></div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="input-zipcode">Postnummer</label>
             <input type="text" class="form-control" id="input-zipcode" placeholder="Postnummer">
-            <div id="input-zipcode-error" class="alert-danger p-2 mt-1 d-none"></div>
+            <div id="input-zipcode-error" class="alert-danger p-2 mt-1" style="display: none"></div>
           </div>
           <div class="form-group col-md-6">
-            <label for="input-city">City</label>
+            <label for="input-city">Stad</label>
             <input type="text" class="form-control" id="input-city">
-            <div id="input-city-error" class="alert-danger p-2 mt-1 d-none"></div>
+            <div id="input-city-error" class="alert-danger p-2 mt-1" style="display: none"></div>
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="input-phone">Telefonnummer</label>
             <input type="number" class="form-control" id="input-phone" placeholder="Telefonnummer">
-            <div id="input-phone-error" class="alert-danger p-2 mt-1 d-none"></div>
+            <div id="input-phone-error" class="alert-danger p-2 mt-1" style="display: none"></div>
           </div>
           <div class="form-group col-md-6 align-self-end text-right">
-            <button type="submit" class="btn btn-primary" disabled>Skicka beställning</button>
+            <button type="submit" id="button-send" class="btn btn-primary">Skicka beställning</button>
           </div>
         </div>
       </form>

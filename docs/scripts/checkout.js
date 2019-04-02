@@ -3,7 +3,7 @@
 // Script som används för checkout-sidan.
 
 $(document).ready(function () {
-
+  // VARUKORG
   // Selektorer och Eventlisteners  
   const $cart = $('#cart');
   const $cartSum = $('#cart-sum');
@@ -71,6 +71,62 @@ $(document).ready(function () {
     }
   }
   updateCart();
+
+  // BESTÄLLNINGSFORMULÄR
+  // Selektorer och Eventlisteners
+
+  const $orderForm = $('#order-form');
+  const $inputName = $('#input-name');
+  const $inputNameError = $('#input-name-error');
+  const $inputEmail = $('#input-email');
+  const $inputEmailError = $('#input-email-error');
+  const $inputAddress = $('#input-address');
+  const $inputAdressError = $('#input-address-error');
+  const $inputZipcode = $('#input-zipcode');
+  const $inputZipcodeError = $('#input-zipcode-error');
+  const $inputCity = $('#input-city');
+  const $inputCityError = $('#input-city-error');
+  const $inputPhone = $('#input-phone');
+  const $inputPhoneError = $('#input-phone-error');
+  const $buttonSend = $('#button-send');
+
+  $inputName.on('keyup change', inputName);
+  $inputEmail.on('keyup change', inputEmail);
+  $inputAddress.on('keyup change', inputAddress);
+  $inputZipcode.on('keyup change', inputZipcode);
+  $inputCity.on('keyup change', inputCity);
+  $inputPhone.on('keyup change', inputPhone);
+
+  function inputName(){
+    const re = /^[a-zåäö\-]{2,50}(?:\n[a-zåäö\n\-]{2,50})+$/;
+    if($inputName.val().length > 4) {
+      $inputNameError.hide(100);
+    }
+    else{
+      $inputNameError.show(100);
+    }
+  };
+
+  function inputEmail(){
+
+  };
+
+  function inputAddress(){
+
+  };
+
+  function inputZipcode(){
+
+  };
+
+  function inputCity(){
+
+  };
+
+  function inputPhone(){
+
+  };
+
 
 }); // ready
 
