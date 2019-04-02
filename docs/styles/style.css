@@ -31,3 +31,10 @@ nav { position: relative; }
 @media(min-width: 500px) {
   #logo-text { display: flex; }
 }
+.qty-prod {
+  width: 4em;
+  -moz-appearance: textfield;
+}
+.qty-prod::-webkit-outer-spin-button, .qty-prod::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
