@@ -1,24 +1,24 @@
 
 {
-  "elgitarrer": [
+  "Gitarrer": [
     {
       "id": 1,
-      "url": "https://via.placeholder.com/500",
-      "product": "Gibson SG Special 2018",
-      "description": "Helt okej",
+      "url": "images/fender_aerodyne_strat.jpg",
+      "product": "Fender Aerodyne Strat",
+      "description": "En riktigt grym stratocaster, helsvart med brun hals och vita benfärgade detaljer.",
       "price": 15599
     }, {
       "id": 2,
-      "url": "https://via.placeholder.com/500",
-      "product": "Gibson Les Paul",
-      "description": "Bra gitarr",
+      "url": "images/fender_dg-11.jpg",
+      "product": "Fender DG-11",
+      "description": "En av Fenders bästa akustiska gitarrer till ett riktigt bra pris.",
       "price": 9999
     }, {
       "id": 3,
-      "url": "https://via.placeholder.com/500",
-      "product": "Gibson Flying V",
-      "description": "Skitbra",
-      "price": 7699
+      "url": "images/akustica.jpg",
+      "product": "Akustica",
+      "description": "En bra akustisk nybörjargitarr.",
+      "price": 599
     }, {
       "id": 4,
       "url": "https://via.placeholder.com/500",
@@ -33,40 +33,36 @@
       "price": 8990
     }
   ], 
-  "akustiska_gitarrer": [
+  "Basgitarrer": [
     {
       "id": 6,
-      "url": "https://via.placeholder.com/500",
-      "product": "Ibanez PF15ECE",
-      "description": "Bra gitarr",
-      "price": 12999
-    }, {
-      "id": 7,
-      "url": "https://via.placeholder.com/500",
-      "product": "CORT Sunset Nylectric",
-      "description": "Skitbra",
-      "price": 12999
+      "url": "images/washburn_xb120.jpg",
+      "product": "Washburn XB120",
+      "description": "Bra bas för nybörjare.",
+      "price": 1999
     },
     {
-      "id": 8,
+      "id": 7,
       "url": "https://via.placeholder.com/500",
       "product": "Stratocaster",
       "description": "Skitbra",
       "price": 12999
+    }
+  ], 
+  "Leksaker": [
+    {
+      "id": 8,
+      "url": "images/guitar_hero_aerosmith.jpg",
+      "product": "Guitar Hero Gitarr - PS3",
+      "description": "Guitar Hero Gitarr, Gibson-modell med det legendariska rockbandet Aerosmith som tema. Perfekt att använda till Guitar Hero Aerosmith.",
+      "price": 299
     },
     {
       "id": 9,
-      "url": "https://via.placeholder.com/500",
-      "product": "Stratocaster",
-      "description": "Skitbra",
-      "price": 12999
-    },
-    {
-      "id": 10,
-      "url": "https://via.placeholder.com/500",
-      "product": "Stratocaster",
-      "description": "Skitbra",
-      "price": 12999
+      "url": "images/ukulele_ananas.jpg",
+      "product": "Ukulele - Ananas",
+      "description": "Charmig leksaksukulele med Hawaiianskt tema. Perfekt för att skapa lite glädje på festen.",
+      "price": 99
     }
   ]
 }

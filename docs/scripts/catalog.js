@@ -20,8 +20,8 @@ $(document).ready(function () {
         html += `
            <div class="card mb-3">
               <div class="row no-gutters">
-                <div class="col-md-3">
-                  <img src="${prod.url}" class="card-img" alt="${prod.product}">
+                <div class="col-md-3 p-3 align-self-center">
+                  <img src="${prod.url}" class="card-img border border-secondary" alt="${prod.product}">
                 </div>
                 <div class="col-md-9">
                   <div class="card-body d-flex flex-column" style="height: 100%;">
