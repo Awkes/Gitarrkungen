@@ -34,7 +34,7 @@ $(document).ready(function () {
             // Loopa igenom produkter
             $.each(prods, (i, prod) => {
               // Kontrollera om produkten finns i varukorgen och lägg till den, samt uppdatera totalsumma
-              if (prod.id === obj.id) {                        
+              if (prod.id === obj.id) {
                 html += `
                   <tr> 
                     <td class="align-middle"><img src="${prod.url}" alt="${prod.product}" class="border border-secondary" style="width: 50px"></th>
@@ -57,7 +57,7 @@ $(document).ready(function () {
             });
           });
           // Om vi har nåt sista produktindex i varukorgen, uppdatera DOM med varukorgens innehåll och totalsumma
-          if (i === (cart.length-1)) { 
+          if (i === (cart.length - 1)) {
             $cart.html(html);
             $cartSum.text(sum);
           }
@@ -81,14 +81,13 @@ $(document).ready(function () {
   const $inputEmail = $('#input-email');
   const $inputEmailError = $('#input-email-error');
   const $inputAddress = $('#input-address');
-  const $inputAdressError = $('#input-address-error');
+  const $inputAddressError = $('#input-address-error');
   const $inputZipcode = $('#input-zipcode');
   const $inputZipcodeError = $('#input-zipcode-error');
   const $inputCity = $('#input-city');
   const $inputCityError = $('#input-city-error');
   const $inputPhone = $('#input-phone');
   const $inputPhoneError = $('#input-phone-error');
-  const $buttonSend = $('#button-send');
 
   $inputName.on('keyup change', inputName);
   $inputEmail.on('keyup change', inputEmail);
@@ -96,40 +95,127 @@ $(document).ready(function () {
   $inputZipcode.on('keyup change', inputZipcode);
   $inputCity.on('keyup change', inputCity);
   $inputPhone.on('keyup change', inputPhone);
+  $orderForm.on('submit', sendOrder);
 
-  function inputName(){
+  // Flaggor för validering
+  let validName = false;
+  let validEmail = false;
+  let validAddress = false;
+  let validZipcode = false;
+  let validCity = false;
+  let validPhone = false;
+
+  function inputName() {
     // Kontrollerar att namn enbart innehåller A-Ö, a-ö, minst två namn mellan 2-25 bokstäver.
-    const re = /^[a-öA-Ö\-]{2,30}(?:\s[a-öA-Ö\s\-]{2,30})+$/;
+    const re = /^[a-öA-Ö\-]{2,50}(?:\s([a-öA-Ö\s\-]){2,50})+$/;
     if (re.test($inputName.val())) {
       $inputNameError.hide(100);
-      $inputName.css('background-color','');
+      $inputName.css('background-color', '');
+      validName = true;
     }
-    else{
+    else {
       $inputNameError.show(100);
-      $inputName.css('background-color','#f7dddc');
+      $inputName.css('background-color', '#f7dddc');
+      validName = false;
     }
-  };
+  }
 
-  function inputEmail(){
+  function inputEmail() {
+    // Kontrollerar att email är korrekt angiven
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (re.test($inputEmail.val())) {
+      $inputEmailError.hide(100);
+      $inputEmail.css('background-color', '');
+      validEmail = true;
+    }
+    else {
+      $inputEmailError.show(100);
+      $inputEmail.css('background-color', '#f7dddc');
+      validEmail = false;
+    }
+  }
 
-  };
+  function inputAddress() {
+    // Kontrollerar att adressen är korrekt angiven
+    const re = /^([a-öA-Ö0-9]+(\s[a-öA-Ö0-9]*){0,1}){5,100}$/;
+    if (re.test($inputAddress.val())) {
+      $inputAddressError.hide(100);
+      $inputAddress.css('background-color', '');
+      validAddress = true;
+    }
+    else {
+      $inputAddressError.show(100);
+      $inputAddress.css('background-color', '#f7dddc');
+      validAddress = false;
+    }
+  }
 
-  function inputAddress(){
+  function inputZipcode() {
+    // Kontrollerar att postnummer är korrekt angivet (5 siffror)
+    const re = /^[0-9]{5,5}$/;
+    if (re.test($inputZipcode.val())) {
+      $inputZipcodeError.hide(100);
+      $inputZipcode.css('background-color', '');
+      validZipcode = true;
+    }
+    else {
+      $inputZipcodeError.show(100);
+      $inputZipcode.css('background-color', '#f7dddc');
+      validZipcode = false;
+    }
+  }
 
-  };
+  function inputCity() {
+    // Kontrollerar att adressen är korrekt angiven
+    const re = /^([a-öA-Ö]+(\s[a-öA-Ö]*){0,1}){2,50}$/;
+    if (re.test($inputCity.val())) {
+      $inputCityError.hide(100);
+      $inputCity.css('background-color', '');
+      validCity = true;
+    }
+    else {
+      $inputCityError.show(100);
+      $inputCity.css('background-color', '#f7dddc');
+      validCity = false;
+    }
+  }
 
-  function inputZipcode(){
+  function inputPhone() {
+    // Kontrollerar att postnummer är korrekt angivet (5 siffror)
+    const re = /^[0-9]{7,12}$/;
+    if (re.test($inputPhone.val())) {
+      $inputPhoneError.hide(100);
+      $inputPhone.css('background-color', '');
+      validPhone = true;
+    }
+    else {
+      $inputPhoneError.show(100);
+      $inputPhone.css('background-color', '#f7dddc');
+      validPhone = false;
+    }
+  }
 
-  };
-
-  function inputCity(){
-
-  };
-
-  function inputPhone(){
-
-  };
-
+  // Kontrollerar att alla fält är validerade och skickar isåfall beställningen och visar bekfräftelsen
+  function sendOrder(e) {
+    e.preventDefault();
+    if (validName && validEmail && validAddress && validZipcode && validCity && validPhone) {
+      // Skapar ett objekt innehållande beställarens uppgifter
+      const customer = {
+        name    : $inputName.val(),
+        email   : $inputEmail.val(),
+        address : $inputAddress.val(),
+        zipcode : $inputZipcode.val(),
+        city    : $inputCity.val(),
+        phone   : $inputPhone.val() 
+      };
+      // Sparar objektet i localStorage
+      localStorage.setItem('customer',JSON.stringify(customer));
+      location.href = 'confirmation.html';
+    }
+    else {
+      alert('Du måste fylla i samtliga fält och rätta eventuella fel!')
+    }
+  }
 
 }); // ready
 
