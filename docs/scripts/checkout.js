@@ -98,12 +98,15 @@ $(document).ready(function () {
   $inputPhone.on('keyup change', inputPhone);
 
   function inputName(){
-    const re = /^[a-zåäö\-]{2,50}(?:\n[a-zåäö\n\-]{2,50})+$/;
-    if($inputName.val().length > 4) {
+    // Kontrollerar att namn enbart innehåller A-Ö, a-ö, minst två namn mellan 2-25 bokstäver.
+    const re = /^[a-öA-Ö\-]{2,30}(?:\s[a-öA-Ö\s\-]{2,30})+$/;
+    if (re.test($inputName.val())) {
       $inputNameError.hide(100);
+      $inputName.css('background-color','');
     }
     else{
       $inputNameError.show(100);
+      $inputName.css('background-color','#f7dddc');
     }
   };
 
