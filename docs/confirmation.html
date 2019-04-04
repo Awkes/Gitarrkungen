@@ -14,7 +14,7 @@
     <a class="brand-name navbar-brand" href="index.html">
       <img id="guitar" src="images/guitar.svg" alt="Gitarrkungen">
       <h1 id="logo-text" class="text-light mt-2">
-      Gitarrkungen
+        Gitarrkungen
       </h1>
     </a>
     <nav>
@@ -25,13 +25,52 @@
   </header>
 
   <div class="container pt-4">
-    <main id="products">
+    <div>
 
-      <h2>Bekräftelse</h2>
-      <hr>  
-      
+      <h2>Orderbekräftelse</h2>
+      <hr>
+      <div id="confirm" class="d-none">
+        <div class="row">
+          <div class="col-md-6 p-5">
+            <div>Beställare:</div>
+            <div id="conf-name" class="pl-3 pt-2"></div>
+            <div class="mt-3">Leveransadress:</div>
+            <div id="conf-address" class="pl-3 pt-2"></div>
+            <div>
+              <span id="conf-zipcode" class="pl-3 pt-2"></span>
+              <span id="conf-city"></span>
+            </div>
+          </div>
+          <div class="col-md-6 p-5">
+            <div>E-post:</div>
+            <div id="conf-email" class="pl-3 pt-2"></div>
+            <div class="mt-3">Telefonnummer:</div>
+            <div id="conf-phone" class="pl-3 pt-2"></div>
+          </div>
+        </div>
+
+        <table class="table table-responsive d-md-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th class="align-middle">Produkt</th>
+              <th class="align-middle text-center" scope="col" style="min-width: 20em;">Antal</th>
+              <th class="align-middle text-right" scope="col">Pris</th>
+            </tr>
+          </thead>
+          <tbody id="cart">
+
+          </tbody>
+        </table>
+        <div class="text-right m-3" style="font-size: 2em; color: #000;">
+            Summa: <span id="cart-sum">0</span> kr
+        </div>
+      </div>
+			<div class="alert-danger p-3 d-none" id="conf-error">
+				Du har kommit till den här sidan av misstag,
+				gå <a href="index.html">tillbaka</a> till butiken och försök igen.
+			</div>
     </main>
-
 
     <hr>
     <footer>
@@ -42,6 +81,7 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="scripts/base.js"></script>
+  <script src="scripts/confirmation.js"></script>
 </body>
 
 </html>
