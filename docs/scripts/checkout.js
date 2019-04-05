@@ -2,15 +2,17 @@
 // ------------
 // Script som används för checkout-sidan.
 
+let $cartSum; // Behöver vara tillgänglig utanför jQuery-blocket
+
 $(document).ready(function () {
   // VARUKORG
   // Selektorer och Eventlisteners  
   const $cart = $('#cart');
-  const $cartSum = $('#cart-sum');
+  $cartSum = $('#cart-sum');
   $cart.on('click', '.add-product', addProduct);
   $cart.on('click', '.sub-product', subProduct);
   $cart.on('click', '.del-product', delProduct);
-  $cart.on('click', '.add-product, .sub-product, .del-product', updateCart);
+
   $('#empty-cart').click(() => {
     if (confirm('Är du säker på att du vill tömma varukorgen?')) {
       cart = [];
@@ -46,7 +48,7 @@ $(document).ready(function () {
                         <button class="add-product btn btn-sm btn-primary" data-id="${prod.id}">+</button>
                       </div>
                     </td>
-                    <td class="align-middle text-right">${obj.qty * prod.price}&nbsp;kr</td>
+                    <td class="align-middle text-right"><span>${obj.qty * prod.price}</span>&nbsp;kr</td>
                     <td class="align-middle text-right">
                       <button class="del-product btn btn-sm btn-danger" data-id="${prod.id}">&times;</button>
                     </td>
@@ -201,15 +203,15 @@ $(document).ready(function () {
     if (validName && validEmail && validAddress && validZipcode && validCity && validPhone) {
       // Skapar ett objekt innehållande beställarens uppgifter
       const customer = {
-        name    : $inputName.val(),
-        email   : $inputEmail.val(),
-        address : $inputAddress.val(),
-        zipcode : $inputZipcode.val(),
-        city    : $inputCity.val(),
-        phone   : $inputPhone.val() 
+        name: $inputName.val(),
+        email: $inputEmail.val(),
+        address: $inputAddress.val(),
+        zipcode: $inputZipcode.val(),
+        city: $inputCity.val(),
+        phone: $inputPhone.val()
       };
       // Sparar objektet i localStorage
-      localStorage.setItem('customer',JSON.stringify(customer));
+      localStorage.setItem('customer', JSON.stringify(customer));
       location.href = 'confirmation.html';
     }
     else {
@@ -219,3 +221,35 @@ $(document).ready(function () {
 
 }); // ready
 
+// VARUKORG - FUNKTION SOM BEHÖVER LIGGA UTANFÖR jQuery-BLOCKET
+
+// Funktion för att uppdatera en produkt i DOM (el = element, action = add/rem/del)
+function updateItem(el, action) {
+  // Hämta alla element som ska uppdateras
+  const $row = $(el).parents('tr');
+  const $qty = $row.find('input');
+  const $price = $row.find('td span');
+
+  let priceChange = 0;
+
+  // Uppdatera antal
+  // Lägg till
+  if (action === 'add') {
+    priceChange += ($price.text() / $qty.val()); // Plusaktor priset ska ändras med
+    $qty.val(parseInt($qty.val()) + 1); // Öka på qty med 1
+  }
+  // Ta bort en
+  else if (action === 'sub' && parseInt($qty.val()) > 1) {
+    priceChange -= (parseInt($price.text()) / $qty.val()); // Minusfaktor priset ska ändras med
+    $qty.val(parseInt($qty.val()) - 1); // Minska qty med 1
+  }
+  // Ta bort alla
+  else if ((action === 'del') || (action === 'sub' && parseInt($qty.val()) <= 1)) {
+    priceChange -= parseInt($price.text()); // Minusfaktor priset ska ändras med
+    $row.remove();
+  }
+  // Uppdatera pris
+  $price.text(parseInt($price.text()) + priceChange);
+  // Uppdatera summa
+  $cartSum.text(parseInt($cartSum.text()) + priceChange);
+}
