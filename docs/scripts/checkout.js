@@ -3,7 +3,7 @@
 // Script som används för checkout-sidan.
 
 let $cart;
-let $cartSumm;
+let $cartSum;
 
 $(document).ready(function () {
   // VARUKORG
