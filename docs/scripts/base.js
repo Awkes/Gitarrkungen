@@ -8,46 +8,43 @@ let cart = JSON.parse(localStorage.getItem('cart')) || [];
 // $cartQty deklareras globalt, för att vara tillgänglig utanför jQuery-blocket
 let $cartQty;
 
-$(document).ready(function () {
+$(document).ready(function() {
 
   // Uppdaterar $cartQry med en selector
   $cartQty = $('#cart-qty');
 
   // Uppdatera siffran vid cart
-  cartQty();
-
+  cartQty(); 
+  
 }); // ready
 
 // Funktion för att lägga till produkter
-function addProduct() {
+function addProduct(){
   // Tar attributet data-id från knappen som triggat funktionen och omvandlar värdet till Number
-  const id = parseInt($(this).attr('data-id'));
+  const id = parseInt($(this).attr('data-id'));  
   // Iterera över cart
-  for (let i = 0; i <= cart.length; i++) {
+  for (let i=0; i<=cart.length; i++) {
     // Om cart innehåller nåt och produkt-id hittas i cart, öka kvantitet, avsluta loop
-    if (cart.length && id === cart[i].id) {
+    if (cart.length && id === cart[i].id) { 
       cart[i].qty++;
       break;
     }
     // Om id inte hittas och vi har kommit till slutet av cart eller om cart är tom, lägg till produkten, avsluta loop
-    else if (i === cart.length - 1 || cart.length === 0) {
-      cart.push({ id: id, qty: 1 });
+    else if (i === cart.length-1 || cart.length === 0) { 
+      cart.push({id: id, qty : 1});            
       break;
     }
   }
-  localStorage.setItem('cart', JSON.stringify(cart)); // Uppdatera localStorage
-  // Uppdatera kvantitet i varukorg
-  cartQty();
-  // Uppdatera varukorgen om funktionen är tillgänglig (finns bara i checkout.js)
-  if (typeof updateCart == 'function') { updateCart(); }
+  localStorage.setItem('cart',JSON.stringify(cart)); // Uppdatera localStorage
+  cartQty(); // Uppdatera kvantitet i varukorg
 }
 
 // Funktion för att minska kvantitet på en produkt i varukorgen
 function subProduct() {
   // Tar attributet data-id från knappen som triggat funktionen och omvandlar värdet till Number
-  const id = parseInt($(this).attr('data-id'));
+  const id = parseInt($(this).attr('data-id'));  
   // Iterera över cart
-  for (let i = 0; i <= cart.length; i++) {
+  for (let i=0; i<=cart.length; i++) {
     // Om id matchar id i cart...
     if (id === cart[i].id) {
       // ... och kvantitet > 1: minska kvantitet
@@ -57,34 +54,30 @@ function subProduct() {
       // ... annars: ta bort produkten helt
       else {
         if (confirm('Är du säker på att du vill ta bort produkten helt?')) {
-          cart.splice(i, 1);
+          cart.splice(i,1);
         }
       }
       break;
     }
   }
-  localStorage.setItem('cart', JSON.stringify(cart)); // Uppdatera localStorage
-  // Uppdatera varukorgen om funktionen är tillgänglig (finns bara i checkout.js)
-  if (typeof updateCart == 'function') { updateCart(); }
+  localStorage.setItem('cart',JSON.stringify(cart)); // Uppdatera localStorage
 }
 
 // Funktion för att bort en produkt helt från varukorgen
 function delProduct() {
   // Tar attributet data-id från knappen som triggat funktionen och omvandlar värdet till Number
-  const id = parseInt($(this).attr('data-id'));
+  const id = parseInt($(this).attr('data-id'));  
   // Iterera över cart
-  for (let i = 0; i <= cart.length; i++) {
+  for (let i=0; i<=cart.length; i++) {
     // Om id matchar id i cart...
     if (id === cart[i].id) {
       if (confirm('Är du säker på att du vill ta bort produkten helt?')) {
-        cart.splice(i, 1);
+        cart.splice(i,1);
       }
       break;
     }
   }
-  localStorage.setItem('cart', JSON.stringify(cart)); // Uppdatera localStorage
-  // Uppdatera varukorgen om funktionen är tillgänglig (finns bara i checkout.js)
-  if (typeof updateCart == 'function') { updateCart(); }
+  localStorage.setItem('cart',JSON.stringify(cart)); // Uppdatera localStorage
 }
 
 // Funktion som itererar över cart och uppdaterar kvantitet i varukorg
