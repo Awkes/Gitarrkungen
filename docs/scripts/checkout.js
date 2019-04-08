@@ -200,7 +200,7 @@ $(document).ready(function () {
   // Kontrollerar att alla fält är validerade och skickar isåfall beställningen och visar bekfräftelsen
   function sendOrder(e) {
     e.preventDefault();
-    if (validName && validEmail && validAddress && validZipcode && validCity && validPhone) {
+    if (validName && validEmail && validAddress && validZipcode && validCity && validPhone && localStorage.getItem('cart')) {
       // Skapar ett objekt innehållande beställarens uppgifter
       const customer = {
         name: $inputName.val(),
@@ -215,7 +215,7 @@ $(document).ready(function () {
       location.href = 'confirmation.html';
     }
     else {
-      alert('Du måste fylla i samtliga fält och rätta eventuella fel!')
+      alert('Du måste fylla i samtliga fält och rätta eventuella fel! Din varukorg får inte vara tom!')
     }
   }
 
